@@ -3,7 +3,7 @@ The friendly ultra light code editor.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 
-Speare is an ultra lightweight code editor smoothly support simultaneously editing multiple files that written with different programming languages. It was originally developed to provide a native scripting language debugging environment that smoothly integrated with C and C++. [Speare Pro](http://sevenuc.com/en/debugger.html) is the advanced version that has more features especially Lua and Ruby debugging environment supported.<br>
+Speare is an ultra lightweight code editor smoothly support simultaneously editing multiple files that written with different programming languages. It was originally developed to provide a native scripting language debugging environment that smoothly integrated with C and C++. [Speare Pro](http://sevenuc.com/en/debugger.html) is the advanced version that has more features especially Lua, Ruby and Python debugging environment supported.<br>
 
 Features
 ------------
@@ -29,13 +29,19 @@ Screenshots
 
 Lua Debugger
 -----------
-Speare code editor support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua.<br>
+The Lua debugger of Speare Pro support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua.<br>
 <br>
 
 Ruby Debugger
 -----------
-The Ruby debugging environment of <b>Speare Pro</b> support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby.<br>
+The Lua debugger of Speare Pro support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby.<br>
 of course, Rails debugging also supported.<br>
+<br>
+
+Python Debugger
+-----------
+The Python debugger of Speare Pro support Python version 2.5, 2.6, 2.7 and 3.x. <br>
+Debugging framework such as Flask and Django based on application also supported.<br>
 <br>
 
 More info
