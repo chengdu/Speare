@@ -59,7 +59,6 @@ if len(sys.argv) == 2:
         sys.exit(0)
 
 filename = None
-confused = False
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', port)
 sock.bind(server_address) # Address already in use

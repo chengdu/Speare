@@ -34,7 +34,7 @@ The Lua debugger of Speare Pro support Lua debugging version includes: 5.1.4, 5.
 
 Ruby Debugger
 -----------
-The Lua debugger of Speare Pro support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby.<br>
+The Ruby debugger of Speare Pro support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby.<br>
 of course, Rails debugging also supported.<br>
 <br>
 
@@ -46,7 +46,7 @@ Debugging framework such as Flask and Django based on application also supported
 
 PHP Debugger
 -----------
-The PHP debugger of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support. <br>
+The PHP debugger of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support. 
 Debugging PHP command line applications is as same as web applications that based on web frameworks.<br>
 <br>
 
