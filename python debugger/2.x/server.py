@@ -73,6 +73,7 @@ connection, client_address = sock.accept()
 while True:
     data = connection.recv(1024) # Receive the startup script
     filename = data.decode('utf-8').strip('\r\n')
+    if filename.startswith("b'"): filename = filename[2:-2]
     break
 try:
     if filename: startDebugger(sock, connection, port, filename)

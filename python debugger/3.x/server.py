@@ -58,11 +58,12 @@ if len(sys.argv) == 2:
         print('*** invalid port number: "%s".' % sys.argv[1])
         sys.exit(0)
 
+filename = None
+confused = False
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', port)
 sock.bind(server_address) # Address already in use
 sock.listen(1) # Listen for incoming connection
-filename = None
 printbanner()
 print('Listen on port %d ...' % port)
 connection, client_address = sock.accept()
@@ -70,6 +71,7 @@ connection, client_address = sock.accept()
 while True:
     data = connection.recv(1024) # Receive the startup script
     filename = data.decode('utf-8').strip('\r\n')
+    if filename.startswith("b'"): filename = filename[2:-2]
     break
 try:
     if filename: startDebugger(sock, connection, port, filename)

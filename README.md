@@ -3,7 +3,7 @@ The friendly ultra light code editor.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 
-Speare is an ultra lightweight code editor smoothly support simultaneously editing multiple files that written with different programming languages. It was originally developed to provide a native scripting language debugging environment that smoothly integrated with C and C++. [Speare Pro](http://sevenuc.com/en/debugger.html) is the advanced version that has more features especially Lua, Ruby and Python debugging environment supported.<br>
+Speare is an ultra lightweight code editor that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. [Speare Pro](http://sevenuc.com/en/debugger.html) is the advanced version that has IDE features especially scripting language debugging environment supported. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreter, including Lua, Ruby, Python and PHP.<br>
 
 Features
 ------------
@@ -42,6 +42,12 @@ Python Debugger
 -----------
 The Python debugger of Speare Pro support Python version 2.5, 2.6, 2.7 and 3.x. <br>
 Debugging framework such as Flask and Django based on application also supported.<br>
+<br>
+
+PHP Debugger
+-----------
+The PHP debugger of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support. <br>
+Debugging PHP command line applications is as same as web applications that based on web frameworks.<br>
 <br>
 
 More info
