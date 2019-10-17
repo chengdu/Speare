@@ -24,6 +24,7 @@ Screenshots
 -------------
 ![Screenshot of Speare](http://sevenuc.com/images/Speare/1.png) <br>
 ![Screenshot of Speare](http://sevenuc.com/images/Speare/2.png) <br>
+![Screenshot of Speare](http://sevenuc.com/images/Speare/9.png) <br>
 ![Screenshot of Speare](http://sevenuc.com/images/Speare/3.png) <br>
 <br>
 
