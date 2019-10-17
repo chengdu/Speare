@@ -7,17 +7,17 @@ Speare is an ultra lightweight code editor that has a designedly graphical user 
 
 Features
 ------------
-1. Simultaneously edit multiple files that written in different programming languages, easy and quickly.<br>
-2. Supports nearly 120 types of common programming language syntax highlighting and parsing, quickly switch between files and projects.<br>
-3. Fast search and replace in different searching scope, current document, opened files and entire project.<br>
-4. Multiple distributed folder management by simple project file.<br>
+1. Well designed user operation interface. Intuitive, friendly, simple and easy. <br>
+2. Fast search and replace in different searching scope, current document, opened files and entire project.<br>
+3. High performance of managing large amount of files and big files. Multiple distributed folder management by simple project file.<br>
+4. Smoothly edit multiple files that written in different programming languages simultaneously. Supports nearly 120 types of common programming language syntax highlighting and parsing, quickly switch between files and projects.<br>
 5. Word autocomplete, sensitivity of keywords when typing, live parsing symbol definition for suggested words list.<br>
 6. Jump to definition and fast locate code lines between editing files by symbol index, bookmark or searching.<br>
 7. Go back and forward, automatically remember the sequence of current editing files.<br>
 8. Keeping entire state after quit, the opened files, selection of each file and the cursor location.<br>
 9. Customisation of fonts and colours for the text editor.<br>
 10. Preview html or markdown files in builtin web browser instantly.<br>
-11. Ultra lightweight, Speare itself is only 607KB.<br>
+11. Ultra lightweight, Speare itself is less than 1MB.<br>
 <br>
 
 Screenshots
