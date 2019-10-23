@@ -54,8 +54,8 @@ PHP Debugger
 The [PHP debugger](http://sevenuc.com/en/debugger.html#php) of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support from PHP 5.x to PHP 7.x. Debugging PHP command line applications is as same as web applications that based on web frameworks.<br>
 <br>
 
-More info
+References
 -------------
-[Speare code editor](http://sevenuc.com/en/Speare.html)http://sevenuc.com/en/Speare.html<br>
-[Speare Pro, the ultra lightweight IDE](http://sevenuc.com/en/debugger.html)http://sevenuc.com/en/debugger.html<br>
+Speare code editor: http://sevenuc.com/en/Speare.html<br>
+Speare Pro, the ultra lightweight IDE: http://sevenuc.com/en/debugger.html<br>
 
