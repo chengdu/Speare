@@ -1,4 +1,5 @@
 # Speare
+![Logo of Speare](http://sevenuc.com/images/Speare/logo.png) <br>
 The friendly ultra lightweight code editor and IDE.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
@@ -30,32 +31,31 @@ Screenshots
 
 Lua Debugger
 -----------
-The Lua debugger of Speare Pro support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua. The link: [Lua debugger](http://sevenuc.com/en/debugger.html#lua)<br>
+The [Lua debugger](http://sevenuc.com/en/debugger.html#lua) of Speare Pro support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua.<br>
 <br>
 
 Ruby Debugger
 -----------
-The Ruby debugger of Speare Pro support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby.<br>
-of course, Rails debugging also supported. The link: [Ruby debugger](http://sevenuc.com/en/debugger.html#ruby)<br>
+The [Ruby debugger](http://sevenuc.com/en/debugger.html#ruby) of Speare Pro support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby. of course, Rails debugging also supported.<br>
 <br>
 
 mruby Debugger
 -----------
-The mruby debugger of Speare Pro is a patched version of mruby 2.0.1 that support remote debugging mruby project. The link: [mruby debugger](http://sevenuc.com/en/debugger.html#mruby)<br>
+The [mruby debugger](http://sevenuc.com/en/debugger.html#mruby) of Speare Pro is a patched version of mruby 2.0.1 that support remote debugging mruby project.<br>
 <br>
 
 Python Debugger
 -----------
-The Python debugger of Speare Pro supports Python version 2.5, 2.6, 2.7 and 3.x, and MicroPython. Debugging framework such as Flask and Django based on application also supported. The link: [Python debugger](http://sevenuc.com/en/debugger.html#python)<br>
+The [Python debugger](http://sevenuc.com/en/debugger.html#python) of Speare Pro supports Python version 2.5, 2.6, 2.7 and 3.x, and MicroPython. Debugging framework such as Flask and Django based on application also supported.<br>
 <br>
 
 PHP Debugger
 -----------
-The PHP debugger of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support from PHP 5.x to PHP 7.x. Debugging PHP command line applications is as same as web applications that based on web frameworks. The link: [PHP debugger](http://sevenuc.com/en/debugger.html#php)<br>
+The [PHP debugger](http://sevenuc.com/en/debugger.html#php) of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support from PHP 5.x to PHP 7.x. Debugging PHP command line applications is as same as web applications that based on web frameworks.<br>
 <br>
 
 More info
 -------------
-[Speare code editor](http://sevenuc.com/en/Speare.html)<br>
-[Speare Pro, the ultra lightweight IDE](http://sevenuc.com/en/debugger.html)<br>
+[Speare code editor](http://sevenuc.com/en/Speare.html)http://sevenuc.com/en/Speare.html<br>
+[Speare Pro, the ultra lightweight IDE](http://sevenuc.com/en/debugger.html)http://sevenuc.com/en/debugger.html<br>
 
