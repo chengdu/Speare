@@ -1,9 +1,9 @@
 # Speare
-The friendly ultra light code editor.<br>
+The friendly ultra lightweight code editor and IDE.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 
-Speare is an ultra lightweight code editor that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. [Speare Pro](http://sevenuc.com/en/debugger.html) is the advanced version that has IDE features especially scripting language debugging environment supported. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreter, including Lua, Ruby, Python and PHP.<br>
+Speare is an ultra lightweight code editor that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with Lua, Ruby, Python and PHP. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
@@ -30,28 +30,32 @@ Screenshots
 
 Lua Debugger
 -----------
-The Lua debugger of Speare Pro support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua.<br>
+The Lua debugger of Speare Pro support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua. Link: [Lua debugger](http://sevenuc.com/en/debugger.html#lua)<br>
 <br>
 
 Ruby Debugger
 -----------
 The Ruby debugger of Speare Pro support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby.<br>
-of course, Rails debugging also supported.<br>
+of course, Rails debugging also supported. Link: [Ruby debugger](http://sevenuc.com/en/debugger.html#ruby)<br>
+<br>
+
+mruby Debugger
+-----------
+The mruby debugger of Speare Pro is a patched version of mruby 2.0.1 that support remote debugging mruby project. Link: [mruby debugger](http://sevenuc.com/en/debugger.html#mruby)<br>
 <br>
 
 Python Debugger
 -----------
-The Python debugger of Speare Pro support Python version 2.5, 2.6, 2.7 and 3.x. <br>
-Debugging framework such as Flask and Django based on application also supported.<br>
+The Python debugger of Speare Pro support Python version 2.5, 2.6, 2.7 and 3.x. Debugging framework such as Flask and Django based on application also supported. Link: [Python debugger](http://sevenuc.com/en/debugger.html#python)<br>
 <br>
 
 PHP Debugger
 -----------
-The PHP debugger of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support from PHP 5.x to PHP 7.x. Debugging PHP command line applications is as same as web applications that based on web frameworks.<br>
+The PHP debugger of Speare Pro supports all kinds debugging of PHP applications and any version of PHP interpreter that has Xdebug support from PHP 5.x to PHP 7.x. Debugging PHP command line applications is as same as web applications that based on web frameworks.Link: [PHP debugger](http://sevenuc.com/en/debugger.html#php)<br>
 <br>
 
 More info
 -------------
-http://sevenuc.com/en/Speare.html<br>
-http://sevenuc.com/en/debugger.html<br>
+[Speare code editor](http://sevenuc.com/en/Speare.html)<br>
+[Speare Pro, the ultra lightweight IDE](http://sevenuc.com/en/debugger.html)<br>
 
