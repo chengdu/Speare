@@ -4,7 +4,7 @@ The friendly ultra lightweight code editor and IDE.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 
-Speare is an ultra lightweight code editor that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with Lua, Ruby, Python and PHP. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreters.<br>
+Speare is an ultra lightweight code editor that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python and PHP. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
@@ -31,7 +31,7 @@ Screenshots
 
 C and C++ Debugger
 -----------
-The [C and C++ debugger](http://sevenuc.com/en/debugger.html#lldb) of Speare implemented as a script client of [LLVM](http://llvm.org/), and support extend it by yourself. You can enjoy debugging almost any type of C and C++ applications under the lightweight debugging environment of Speare code editor.<br>
+The [C and C++ debugger](http://sevenuc.com/en/debugger.html#lldb) of Speare implemented as a script client of [LLDB](http://lldb.llvm.org/), and support extend it by yourself. You can enjoy debugging almost any type of C and C++ applications under the lightweight debugging environment of Speare code editor.<br>
 <br>
 
 mruby Debugger

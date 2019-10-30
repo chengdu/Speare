@@ -511,12 +511,12 @@ class LLDBDebugger(object):
     return items
 
   """
-  def dump_sbvalue(self, sbvalue):
+  def dumpSBValue(self, sbvalue):
     children = []
     for i in range(sbvalue.GetNumChildren()):
       x = sbvalue.GetChildAtIndex(i, lldb.eNoDynamicValues, True)
       if isinstance(x, dict) or isinstance(x, list):
-        s = self.dump_sbvalue(x)
+        s = self.dumpSBValue(x)
       else: s = str(x)
       children.append(s)
     return children
@@ -596,6 +596,13 @@ class LLDBDebugger(object):
         for arg in args: print(arg)
     print("---------------")
 
+  def dumpArgsAndVariables(self, name, args, stack):
+    if len(args):
+      argstring = []
+      for arg in args:
+        argstring.append('{"%s": {"type": "%s", "value": "%s"}}' % (arg.name, arg.type, arg.value))
+      stack.append('"' + name + '": [\n' + ',\n'.join(argstring) + '],')
+
   def printFrames(self):
     if not self.dbg: return
     target = self.dbg.GetSelectedTarget()
@@ -619,18 +626,9 @@ class LLDBDebugger(object):
           stack.append('"function": "%s",' % function)
         
         args = frame.get_arguments()
-        if len(args):
-          argstring = []
-          for arg in args:
-            argstring.append('{"%s": {"type": "%s", "value": "%s"}}' % (arg.name, arg.type, arg.value))
-          stack.append('"args": [\n' + ',\n'.join(argstring) + '],')
-        
+        self.dumpArgsAndVariables("args", args, stack)
         vars = frame.get_all_variables()
-        if len(vars):
-          varsstring = []
-          for var in vars:
-            varsstring.append('{"%s": {"type": "%s", "value": "%s"}}' % (var.name, var.type, var.value))
-          stack.append('"vars": [\n' + ',\n'.join(varsstring) + '],')
+        self.dumpArgsAndVariables("vars", vars, stack)
 
     globalvars = self.dumpGlobals()
     if len(globalvars):
