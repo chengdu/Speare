@@ -399,7 +399,7 @@ class LLDBDebugger(object):
     if not self.process: return
     if tracback: # print stack data when crashed
       self.printFrames()
-      self.traceAll()
+      self.traceAll(True)
 
     self.dbg.Terminate()
     self.dbg = None
