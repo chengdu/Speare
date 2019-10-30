@@ -29,9 +29,14 @@ Screenshots
 ![Screenshot of Speare](http://sevenuc.com/images/Speare/3.png) <br>
 <br>
 
-Lua Debugger
+C and C++ Debugger
 -----------
-The [Lua debugger](http://sevenuc.com/en/debugger.html#lua) of Speare Pro support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua.<br>
+The [C and C++ debugger](http://sevenuc.com/en/debugger.html#lldb) of Speare implemented as a script client of [LLVM](http://llvm.org/), and support extend it by yourself. You can enjoy debugging almost any type of C and C++ applications under the lightweight debugging environment of Speare code editor.<br>
+<br>
+
+mruby Debugger
+-----------
+The [mruby debugger](http://sevenuc.com/en/debugger.html#mruby) of Speare Pro is a patched version of mruby 2.0.1 that support remote debugging mruby project.<br>
 <br>
 
 Ruby Debugger
@@ -39,9 +44,9 @@ Ruby Debugger
 The [Ruby debugger](http://sevenuc.com/en/debugger.html#ruby) of Speare Pro support all kinds of Ruby interpreters, the version includes: 1.8.x, 1.9.x, 2.x, and JRuby. of course, Rails debugging also supported.<br>
 <br>
 
-mruby Debugger
+Lua Debugger
 -----------
-The [mruby debugger](http://sevenuc.com/en/debugger.html#mruby) of Speare Pro is a patched version of mruby 2.0.1 that support remote debugging mruby project.<br>
+The [Lua debugger](http://sevenuc.com/en/debugger.html#lua) of Speare Pro support Lua debugging version includes: 5.1.4, 5.1.5, 5.2.4, 5.3.5 5.4.0-alpha, all kinds of Lua interpreter or your own customised version of Lua.<br>
 <br>
 
 Python Debugger
