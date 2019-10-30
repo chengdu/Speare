@@ -1,12 +1,12 @@
 {
   "port": 6789,
-  "program": "/Users/henry/Desktop/CDebug/ctest/hello",
+  "program": "/your/binary/path/hello",
   "args": ["one", "two", "three"],
   "environment": [{"name1": "value1"}, {"name2": "value2"}],
-  "dSYM": "/Users/henry/Desktop/CDebug/ctest/hello.dSYM",
+  "dSYM": "/your/binary/path/hello.dSYM",
   "memorylimits": "4GB",
   "memorylimits_enable": true,
-  "remappath": "# your/running/path",
+  "remappath": "# /your/running/path",
   "dumpimage": false,
   "dumpregisters": false,
   "dumpframes": false

@@ -3,8 +3,8 @@
 # The C and C++ debugger for Speare code editor.
 # Copyright (c) 2019 sevenuc.com. All rights reserved.
 # 
-# THIS FILE IS PART OF THE ADVANCED VERSION OF SPEARE CODE EDITOR.
-# WITHOUT THE WRITTEN PERMISSION OF THE AUTHOR THIS FILE MAY NOT
+# THIS FILE IS PART OF SPEARE CODE EDITOR. WITHOUT THE
+# WRITTEN PERMISSION OF THE AUTHOR THIS FILE MAY NOT
 # BE USED FOR ANY COMMERCIAL PRODUCT.
 # 
 # More info: 
@@ -74,7 +74,7 @@ def breakpoint_callback(frame, bp_loc, dict):
 
 def pauseHelper(frame):
   line  = str(frame)
-  #frame #0: 0x0000000100000edd hello`main at /Users/henry/Desktop/CDebug/hello.c:9
+  #frame #0: 0x0000000100000edd hello`main at /your/source/path/hello.c:9
   p = line.rfind(" at ")
   if p != -1:
      fileline = line[p+4:]
@@ -98,13 +98,14 @@ def notify_stdio(ev_type):
   global debugger
   if ev_type == lldb.SBProcess.eBroadcastBitSTDOUT:
     read_stream = debugger.process.GetSTDOUT
-    isStdout = True #'stdout'
+    isStdout = True
   else:
     read_stream = debugger.process.GetSTDERR
-    isStdout = False # 'stderr'
+    isStdout = False
   output = read_stream(1024)
   while output:
-    debugger.message(zip_whitespace(output))
+    # TODO: you can hook here to log big data output or error in file.
+    debugger.message(output)
     output = read_stream(1024)
 
 def start_loop_listener():
@@ -112,7 +113,6 @@ def start_loop_listener():
   listener = lldb.SBListener("loop listener")
   def listen():
     event = lldb.SBEvent()
-    #try:
     while True:
       if listener.WaitForEvent(1, event):
         #if lldb.SBProcess.EventIsProcessEvent(event):
@@ -122,9 +122,6 @@ def start_loop_listener():
           notify_stdio(ev_type)
       elif lldb.SBTarget.EventIsTargetEvent(event):
         notify_target(event)
-    #except:
-    #print("*** Loop listener shutting down")
-
   # Start the listener and let it run as a daemon
   listener_thread = threading.Thread(target=listen)
   listener_thread.daemon = True
@@ -156,7 +153,7 @@ def start_breakpoint_listener():
             #print("breakpoint added, id = " + str(breakpoint.id))
             file = None; line = None
             string  = str(breakpoint)
-            #SBBreakpoint: id = 2, file = '/Users/henry/Desktop/CDebug/ctest/hello.c', line = 14
+            #SBBreakpoint: id = 2, file = '/your/source/path/hello.c', line = 14
             for item in string.split(', '):
               if item.startswith('file = '):
                 file = item[8:-1]
@@ -225,6 +222,8 @@ class LLDBDebugger(object):
     runnning_dir = self.configdict['remappath']
     if runnning_dir[0] == '#': return # remap path not set
     compile_dir = os.path.dirname(srcfile)
+    print("*** compile_dir = %s" % compile_dir)
+    print("*** runnning_dir = %s" % runnning_dir)
     self.handleSettings("settings set target.source-map %s %s" % (compile_dir, runnning_dir))
 
   def message(self, data):
@@ -562,12 +561,12 @@ class LLDBDebugger(object):
     process = target.GetProcess()
     thread = process.GetSelectedThread()
 
-    #1. dump symbol address: 
+    #1. Dump symbol address: 
     if force or self.configdict['dumpimage']:
       (success, result) = self.getCommandResult("image", "list")
       if success: print(result.GetOutput())
 
-    #2. display the values of the registers
+    #2. Display the values of the registers
     if force or self.configdict['dumpregisters']:
       (success, result) = self.getCommandResult("register", "read")
       if success: print(result.GetOutput())
@@ -575,13 +574,13 @@ class LLDBDebugger(object):
       frame = thread.GetFrameAtIndex(0)
       if frame: self.disasm(frame)
 
-    #3. trace back threads
+    #3. Trace back threads
     if not force and not self.configdict['dumpframes']: 
       return
     (success, result) = self.getCommandResult("thread", "backtrace")
     if success: print(result.GetOutput())
 
-    #4. dump all frames
+    #4. Dump all frames of current thread
     print("Current Frames:")
     for frame in thread:
       if not frame.IsInlined():
@@ -682,7 +681,7 @@ class LLDBDebugger(object):
     state = self.process.GetState()
     if state == lldb.eStateInvalid or state == lldb.eStateCrashed \
        or state == lldb.eStateExited:
-      self.doExit()
+      self.doExit(state == lldb.eStateCrashed)
       return
 
     self.queue_lock.acquire()
@@ -732,12 +731,12 @@ def main():
   debugger.handleSettings("settings set target.env-vars DEBUG=1")
   for item in dict['environment']:
     k = item.keys()[0] 
-    #TODO: value should be quoted
+    #TODO: some value should be quoted
     debugger.handleSettings("settings set target.env-vars %s=%s" % (k, item[k]))
   cmdline = 'create %s %s' % (executable, ' '.join(dict['args']))
   print("command line: #%s#" % cmdline)
   debugger.doTarget(cmdline)
-  #dSYMFile = dict['dSYM'] #TODO: handle customised symbols dir
+  #dSYMFile = dict['dSYM'] # TODO: handle customised symbols dir
   #if os.path.exists(dSYMFile):
   #  debugger.doTarget('symbols %s' % dSYMFile) #invalid command
   p = executable.rfind('/')
@@ -758,7 +757,11 @@ def main():
             debugger.addRequest(line)
         debugger.handelRequest()
   except socket.error:
-    debugger.doExit()
+    force = False
+    if debugger.process:
+      state = debugger.process.GetState()
+      force = state == lldb.eStateCrashed
+    debugger.doExit(force)
   finally:
     if listener: listener.close()
     if connection: connection.close()

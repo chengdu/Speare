@@ -1,7 +1,7 @@
 Speare Debug Server v0.0.4
 Copyright (c) 2019 sevenuc.com. All rights reserved.
 
-This is the C and C++ debugger for Speare Pro:
+This is the C and C++ debugger for Speare code editor:
 http://sevenuc.com/en/Speare.html
 
 Package source and download:
@@ -24,10 +24,10 @@ Configure File:
   "program": "/path/to/your/binary",   # Full path of your binary
   "args": ["one", "two", "three"],     # Command line parameters
   "environment": [{"name1": "value1"}, {"name2": "value2"}], # Environment variables
-  "dSYM": "/Users/henry/Desktop/CDebug/ctest/hello.dSYM",    # Not used at present
+  "dSYM": "/your/binary/path/hello.dSYM",  # Not used at present
   "memorylimits": "4GB",               # Limits of memory usage by the debugger
   "memorylimits_enable": true,         # Turn on or off memory limits
-  "remappath": "# your/running/path",  # Source code directory
+  "remappath": "# /your/running/path", # Source code directory
   "dumpimage": false,                  # Dump binary dependency
   "dumpregisters": false,              # Dump CPU registers
   "dumpframes": false                  # Dump stack frames whenever debugger handle a command
