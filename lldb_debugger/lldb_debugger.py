@@ -37,7 +37,7 @@ class StepType:
   OVER = 4
   OUT = 5
 
-def printbanner():
+def print_banner():
   print("\n")
   print("   ____")
   print("  / __/ __  ___ ___  ___ ___")
@@ -72,7 +72,7 @@ def breakpoint_callback(frame, bp_loc, dict):
   # Returning True means that we actually want to stop at this breakpoint
   return True
 
-def pauseHelper(frame):
+def pause_helper(frame):
   line  = str(frame)
   #frame #0: 0x0000000100000edd hello`main at /your/source/path/hello.c:9
   p = line.rfind(" at ")
@@ -239,7 +239,7 @@ class LLDBDebugger(object):
   # - filespec.IsValid() is false,
   # - user has directed us to suppress source info by setting the local prefix is source map to None,
   # - suppress_missing_sources is true and the local file does not exist.
-  def map_filespec_to_local(self, filespec):
+  def filespecToLocal(self, filespec):
     if not filespec.IsValid():
       return None
     local_path = os.path.normpath(filespec.fullpath)
@@ -248,26 +248,26 @@ class LLDBDebugger(object):
     return local_path
 
   # Should we show source or disassembly for this frame?
-  def in_disassembly(self, frame):
+  def inDisassembly(self, frame):
     if self.show_disassembly == 'never':
       return False
     elif self.show_disassembly == 'always':
       return True
     else:
       fs = frame.GetLineEntry().GetFileSpec()
-      return self.map_filespec_to_local(fs) is None
+      return self.filespecToLocal(fs) is None
 
   def doStep(self, stepType):
     target = self.dbg.GetSelectedTarget()
     process = target.GetProcess()
     t = process.GetSelectedThread()
     if stepType == StepType.INTO:
-      if not self.in_disassembly(t.GetFrameAtIndex(0)):
+      if not self.inDisassembly(t.GetFrameAtIndex(0)):
         t.StepInto()
       else:
         t.StepInstruction(False) # StepType.INSTRUCTION
     elif stepType == StepType.OVER:
-      if not self.in_disassembly(t.GetFrameAtIndex(0)):
+      if not self.inDisassembly(t.GetFrameAtIndex(0)):
         t.StepOver()
       else:
         t.StepInstruction(True) # StepType.INSTRUCTION_OVER
@@ -374,8 +374,9 @@ class LLDBDebugger(object):
       line =  frame.GetLineEntry().GetLine()
       self.message(temp % (srcfile, line))
     else:
-      fileline = pauseHelper(frame)
+      fileline = pause_helper(frame)
       if fileline:
+        srcfile = fileline[0]
         self.message(temp % (fileline[0], fileline[1]))
     return srcfile
 
@@ -491,7 +492,7 @@ class LLDBDebugger(object):
         print("\n*** process exited.\n")
         self.doExit(new_state == lldb.eStateCrashed)
 
-  def dump_globals(self):
+  def dumpGlobals(self):
     if not self.target: return
     module = self.target.module[self.target.executable.basename]
     if not module: return
@@ -631,7 +632,7 @@ class LLDBDebugger(object):
             varsstring.append('{"%s": {"type": "%s", "value": "%s"}}' % (var.name, var.type, var.value))
           stack.append('"vars": [\n' + ',\n'.join(varsstring) + '],')
 
-    globalvars = self.dump_globals()
+    globalvars = self.dumpGlobals()
     if len(globalvars):
       stack.append('"global": [\n' + ',\n'.join(globalvars) + '],')
     if len(stack):
@@ -720,7 +721,7 @@ def main():
   server_address = ('localhost', port)
   listener.bind(server_address) # Address already in use
   listener.listen(1) # Listen for incoming connection
-  printbanner()
+  print_banner()
   print('Listen on port %d ...' % port)
   print('image: %s' % executable)
   
