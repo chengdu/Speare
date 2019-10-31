@@ -1,10 +1,10 @@
 # Speare
 ![Logo of Speare](http://sevenuc.com/images/Speare/logo.png) <br>
-The friendly ultra lightweight code editor and IDE.<br>
+The ultra lightweight code editor and small IDE.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 
-Speare is an ultra lightweight code editor that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python and PHP. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreters.<br>
+Speare is an ultra lightweight code editor and small IDE that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python and PHP. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
@@ -19,6 +19,15 @@ Features
 9. Customisation of fonts and colours for the text editor.<br>
 10. Preview html or markdown files in builtin web browser instantly.<br>
 11. Ultra lightweight, Speare itself is less than 1MB.<br>
+<br>
+
+Other Builtin Features:
+------------
+a. ❅ C and C++ debugging with LLDB.<br>
+b. Binary file automatically detection.<br>
+c. Text encodings automatically detection when open file and convert to UTF-8 by default.<br>
+d. Code block selection by double clicking the begin symbol of code block.<br>
+e. Builtin compatible UTF-8 regular expression matching anywhere.<br>
 <br>
 
 Screenshots

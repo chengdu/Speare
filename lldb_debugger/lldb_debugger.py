@@ -47,19 +47,6 @@ def print_banner():
   print("Speare Debug Server v0.0.4")
   print("(c) http://sevenuc.com \n")
 
-def state_tostring(v):
-  states = { lldb.eStateInvalid: "invalid", lldb.eStateUnloaded: "unloaded",
-          lldb.eStateConnected: "connected", lldb.eStateAttaching: "attaching",
-          lldb.eStateLaunching: "launching", lldb.eStateStopped: "stopped",
-          lldb.eStateRunning: "running",  lldb.eStateStepping: "stepping",
-          lldb.eStateCrashed: "crashed",  lldb.eStateDetached: "detached",
-          lldb.eStateExited: "exited",  lldb.eStateSuspended: "suspended"}
-  if v in states.keys(): return states[v]
-  else: raise Exception("Unknown StateType enum")
-
-def zip_whitespace(s):
-  return re.sub("\s+", " ", s)
-
 def breakpoint_callback(frame, bp_loc, dict):
   # Ensure breakpoint contained in the frame be selected
   global debugger
@@ -275,7 +262,6 @@ class LLDBDebugger(object):
   def doDetach(self):
     if self.process is not None and self.process.IsValid():
       pid = self.process.GetProcessID()
-      state = state_tostring(self.process.GetState())
       self.process.Detach()
       self.processPendingEvents(self.eventDelayLaunch)
 
@@ -285,7 +271,6 @@ class LLDBDebugger(object):
     exe = os.path.join(fs.GetDirectory(), fs.GetFilename())
     if self.process is not None and self.process.IsValid():
       pid = self.process.GetProcessID()
-      state = state_tostring(self.process.GetState())
       self.process.Destroy()
     launchInfo = lldb.SBLaunchInfo(args.split(' '))
     self.process = self.target.Launch(launchInfo, error)
