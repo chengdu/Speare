@@ -58,14 +58,11 @@ def state_tostring(v):
   else: raise Exception("Unknown StateType enum")
 
 def zip_whitespace(s):
-  """Replace newlines, tabs, multiple spaces, etc with exactly one space"""
   return re.sub("\s+", " ", s)
 
 def breakpoint_callback(frame, bp_loc, dict):
+  # Ensure breakpoint contained in the frame be selected
   global debugger
-  """This callback is registered with every breakpoint and makes sure that the
-  frame containing the breakpoint location is selected """
-  # Select the frame and the thread containing it
   frame.thread.process.SetSelectedThread(frame.thread)
   frame.thread.SetSelectedFrame(frame.idx)
   debugger.sendPausedInfo(frame)
@@ -122,19 +119,16 @@ def start_loop_listener():
           notify_stdio(ev_type)
       elif lldb.SBTarget.EventIsTargetEvent(event):
         notify_target(event)
-  # Start the listener and let it run as a daemon
   listener_thread = threading.Thread(target=listen)
   listener_thread.daemon = True
   listener_thread.start()
-  # Register the listener with the process
   if not debugger.process.IsValid():
-    print('Error: process is invalid when running event listener.')
+    print('Error: process is invalid when running loop listener.')
     sys.exit(0)
   debugger.process.GetBroadcaster().AddListener(listener, 0xFFFFFF)
 
 def start_breakpoint_listener():
-  """Listens for breakpoints being added and adds new ones to the callback
-  registration list"""
+  # Listens for breakpoints event
   global debugger
   listener = lldb.SBListener("breakpoint listener")
 
@@ -150,7 +144,6 @@ def start_breakpoint_listener():
             breakpoint = lldb.SBBreakpoint.GetBreakpointFromEvent(event)
             global debugger, new_breakpoints
             new_breakpoints.append(breakpoint.id)
-            #print("breakpoint added, id = " + str(breakpoint.id))
             file = None; line = None
             string  = str(breakpoint)
             #SBBreakpoint: id = 2, file = '/your/source/path/hello.c', line = 14
@@ -165,29 +158,18 @@ def start_breakpoint_listener():
               debugger.message(temp % (str(breakpoint.id), file, line))
     except:
       print("*** Breakpoint listener shutting down")
-
-  # Start the listener and let it run as a daemon
   listener_thread = threading.Thread(target=listen)
   listener_thread.daemon = True
   listener_thread.start()
-  # Register the listener with the target
   broadcaster = debugger.target.GetBroadcaster()
   broadcaster.AddListener(listener, lldb.SBTarget.eBroadcastBitBreakpointChanged)
 
 class LLDBDebugger(object):
-  """ Handles LLDB events such as commands and lldb events. """
-  # Timeouts (sec) for waiting on new events. Usually, we only process events that are already
-  # sitting on the queue. But in some situations (when we are expecting an event as a result of some
-  # user interaction) we want to wait for it. The constants below set these wait period in which the
-  # main thread is "blocked". Lower numbers will make main thread more responsive, but LLDB will be 
-  # delayed and higher numbers will mean that LLDB events are processed faster, but the main thread 
-  # may appear less responsive at times.
   eventDelayStep = 2
   eventDelayLaunch = 1
   eventDelayContinue = 1
 
   def __init__(self, sock, lstener, config):
-    """ Creates the LLDB SBDebugger object and initializes the debugger. """
     self.target = None
     self.process = None
     self.load_dependent_modules = True
@@ -206,7 +188,6 @@ class LLDBDebugger(object):
     self.commandInterpreter.HandleCommand(str(string), lldb.SBCommandReturnObject())
 
   def setSettings(self):
-    #settings set target.source-map /buildbot/path /my/path
     self.handleSettings("settings set target.inline-breakpoint-strategy always")
     self.handleSettings("settings set frame-format frame #${frame.index}: " \
                    "${frame.pc}{ ${module.file.basename}{\`${function.name}}}" \
@@ -214,16 +195,12 @@ class LLDBDebugger(object):
     self.handleSettings("settings set target.load-script-from-symbol-file false")
 
   def remapSourcePath(self, srcfile):
-    # Remap source file pathnames for the debug session
-    # If your source files are no longer located in the same location as when the program was built
-    # (maybe the program was built on a different computer) you need to tell the debugger how to find 
-    # the sources at their local file path instead of the build system's file path
+    # If the build path of the program WAS NOT
+    # the same path for the debug session use the running path instead of the build path
     # debugger.handleSettings("settings set target.source-map /buildbot/path /my/path")
     runnning_dir = self.configdict['remappath']
     if runnning_dir[0] == '#': return # remap path not set
     compile_dir = os.path.dirname(srcfile)
-    print("*** compile_dir = %s" % compile_dir)
-    print("*** runnning_dir = %s" % runnning_dir)
     self.handleSettings("settings set target.source-map %s %s" % (compile_dir, runnning_dir))
 
   def message(self, data):
@@ -234,11 +211,6 @@ class LLDBDebugger(object):
     self.queue.append(req)
     self.queue_lock.release()
 
-  # Translates SBFileSpec into a local path using mappings in source_map.
-  # Returns None if source info should be suppressed.  There are 3 cases when this happens:
-  # - filespec.IsValid() is false,
-  # - user has directed us to suppress source info by setting the local prefix is source map to None,
-  # - suppress_missing_sources is true and the local file does not exist.
   def filespecToLocal(self, filespec):
     if not filespec.IsValid():
       return None
@@ -247,7 +219,7 @@ class LLDBDebugger(object):
       local_path = None
     return local_path
 
-  # Should we show source or disassembly for this frame?
+  # Should we show source or disassembly for this frame
   def inDisassembly(self, frame):
     if self.show_disassembly == 'never':
       return False
@@ -276,14 +248,13 @@ class LLDBDebugger(object):
     self.processPendingEvents(self.eventDelayStep, True)
 
   def doSelect(self, command, args):
-    """ Like doCommand, but suppress output when "select" is the first argument."""
+    # Like doCommand, but suppress output when "select" is the first argument.
     a = args.split(' ')
     return self.doCommand(command, args, "select" != a[0], True)
 
   def doProcess(self, args):
-    """ Handle 'process' command. If 'launch' is requested, use doLaunch() instead
-        of the command interpreter to start the inferior process.
-    """
+    # Handle 'process' command. If 'launch' is requested, use doLaunch() instead
+    # of the command interpreter to start the inferior process.
     a = args.split(' ')
     if len(args) == 0 or (len(a) > 0 and a[0] != 'launch'):
       self.doCommand("process", args)
@@ -291,7 +262,6 @@ class LLDBDebugger(object):
       self.doLaunch('-s' not in args, "")
 
   def doAttach(self, process_name):
-    """ Handle process attach.  """
     error = lldb.SBError()
     self.processListener = lldb.SBListener("process_event_listener")
     self.target = self.dbg.CreateTarget('')
@@ -300,7 +270,7 @@ class LLDBDebugger(object):
       print("Error during attach: " + str(error))
       return
     self.pid = self.process.GetProcessID()
-    print("Attached to %s (pid=%d)" % (process_name, self.pid))
+    print("Attached %s (pid=%d)" % (process_name, self.pid))
 
   def doDetach(self):
     if self.process is not None and self.process.IsValid():
@@ -310,7 +280,6 @@ class LLDBDebugger(object):
       self.processPendingEvents(self.eventDelayLaunch)
 
   def doLaunch(self, stop_at_entry, args):
-    """ Handle process launch.  """
     error = lldb.SBError()
     fs = self.target.GetExecutable()
     exe = os.path.join(fs.GetDirectory(), fs.GetFilename())
@@ -330,8 +299,7 @@ class LLDBDebugger(object):
         lldb.SBProcess.eBroadcastBitStateChanged)
     start_loop_listener()
 
-    # Limits debuger's memory usage to 4GB to prevent runaway visualizers from killing the machine
-    # do this after launch, so that the debuggee does not inherit debugger's limits
+    # Limits debugger's memory usage to 4GB to prevent machine crash
     if self.configdict['memorylimits_enable']:
       soft, hard = resource.getrlimit(resource.RLIMIT_AS)
       limits = 4 # 4GB by default
@@ -381,9 +349,7 @@ class LLDBDebugger(object):
     return srcfile
 
   def doContinue(self):
-    """ Handle 'contiue' command.
-        FIXME: switch to doCommand("continue", ...) to handle -i ignore-count param.
-    """
+    #TODO:switch to doCommand("continue", ...) to handle -i ignore-count param.
     if not self.process or not self.process.IsValid():
       print("No process to continue.")
       return
@@ -392,7 +358,6 @@ class LLDBDebugger(object):
     self.registerBreakpoint()
 
   def doRefresh(self):
-    """ process pending events and update UI on request """
     status = self.processPendingEvents()
 
   def doExit(self, tracback = False):
@@ -409,14 +374,12 @@ class LLDBDebugger(object):
     self.process = None
 
   def getCommandResult(self, command, command_args = ""):
-    """ Run cmd in the command interpreter and returns (success, output) """
     result = lldb.SBCommandReturnObject()
     cmd = "%s %s" % (command, command_args)
     self.commandInterpreter.HandleCommand(cmd, result)
     return (result.Succeeded(), result)
 
   def doCommand(self, command, command_args, print_on_success = True, goto_file=False):
-    """ Run cmd in interpreter and print result (success or failure). """
     (success, result) = self.getCommandResult(command, command_args)
     output = result.GetOutput() if result.Succeeded() else result.GetError()
     if success:
@@ -428,7 +391,6 @@ class LLDBDebugger(object):
       print(output + "\n")
 
   def registerBreakpoint(self):
-    # make sure to register them with the breakpoint callback
     res = lldb.SBCommandReturnObject()
     while len(new_breakpoints) > 0:
       res.Clear()
@@ -436,18 +398,19 @@ class LLDBDebugger(object):
       if breakpoint_id in registered_breakpoints:
         pass #breakpoint with id xxx is already registered. Ignoring.
       else:
-        callback_command = ("breakpoint command add -F breakpoint_callback " + str(breakpoint_id))
+        bpid = str(breakpoint_id)
+        # make sure to register them with the breakpoint callback
+        callback_command = ("breakpoint command add -F breakpoint_callback " + bpid)
         self.commandInterpreter.HandleCommand(callback_command, res)
         if res.Succeeded():
           registered_breakpoints.add(breakpoint_id)
         else:
-          print("Error while trying to register breakpoint callback, id = " + str(breakpoint_id))
+          print("Error while trying to register breakpoint callback, id = " + bpid)
 
   def processPendingEvents(self, wait_seconds=0, goto_file=True):
-    """ Handle any events that are queued from the inferior.
-        Blocks for at most wait_seconds, or if wait_seconds == 0,
-        process only events that are already queued.
-    """
+    # Handle any events that are queued from the inferior.
+    # Blocks for at most wait_seconds, or if wait_seconds == 0,
+    # process only events that are already queued.
     status = None
     num_events_handled = 0
 
@@ -527,23 +490,22 @@ class LLDBDebugger(object):
       for i in insts:
         print i
     print("~~~~~~~~~")
-    # Print someframe info
-    print frame
+    print frame # print the frame summary
     function = frame.GetFunction()
-    # See if we have debug info (a function)
+    # see if we have debug info (a function)
     if function:
-      # We do have a function, print some info for the function
+      # print some info for the function
       print function
-      # Now get all instructions for this function and print them
+      # nNow get all instructions for this function and print them
       insts = function.GetInstructions(target)
       disassemble_instructions (insts)
     else:
-      # See if we have a symbol in the symbol table for where we stopped
+      # see if we have a symbol in the symbol table for where we stopped
       symbol = frame.GetSymbol();
       if symbol:
-        # We do have a symbol, print some info for the symbol
+        # we do have a symbol, print some info for the symbol
         print symbol
-        # Now get all instructions for this symbol and print them
+        # now get all instructions for this symbol and print them
         insts = symbol.GetInstructions(target)
         disassemble_instructions (insts)
 
@@ -561,17 +523,17 @@ class LLDBDebugger(object):
     target = self.dbg.GetSelectedTarget()
     process = target.GetProcess()
     thread = process.GetSelectedThread()
-
-    #1. Dump symbol address: 
+    #thread = process.GetThreadAtIndex(0)
+    
+    #1. Dump image symbol address: 
     if force or self.configdict['dumpimage']:
       (success, result) = self.getCommandResult("image", "list")
       if success: print(result.GetOutput())
 
-    #2. Display the values of the registers
+    #2. Display registers
     if force or self.configdict['dumpregisters']:
       (success, result) = self.getCommandResult("register", "read")
       if success: print(result.GetOutput())
-      #thread = self.process.GetThreadAtIndex(0)
       frame = thread.GetFrameAtIndex(0)
       if frame: self.disasm(frame)
 
@@ -652,7 +614,6 @@ class LLDBDebugger(object):
       elif args == 'over': stepType = StepType.OVER
       elif args == 'out': stepType = StepType.OUT
       else: return;
-
       self.doStep(stepType)
       self.printFrames()
       self.traceAll() # TODO: more hook info here.
@@ -661,7 +622,6 @@ class LLDBDebugger(object):
     elif cmd == 'breakpoint':
       args = d['args']
       self.doCommand("breakpoint", str(args), True, True)
-    #elif cmd == 'watchpoint':
     elif cmd == 'exit':
       self.doExit()
     elif cmd == 'attach':
@@ -678,8 +638,7 @@ class LLDBDebugger(object):
     if not self.process: return
     #TODO: handle exit gracefully
     state = self.process.GetState()
-    if state == lldb.eStateInvalid or state == lldb.eStateCrashed \
-       or state == lldb.eStateExited:
+    if state in [lldb.eStateInvalid, lldb.eStateCrashed, lldb.eStateExited]:
       self.doExit(state == lldb.eStateCrashed)
       return
 
@@ -726,14 +685,12 @@ def main():
   connection, client_address = listener.accept()
   #connection.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
   debugger = LLDBDebugger(connection, listener, dict)
-  #environment variables
   debugger.handleSettings("settings set target.env-vars DEBUG=1")
   for item in dict['environment']:
     k = item.keys()[0] 
     #TODO: some value should be quoted
     debugger.handleSettings("settings set target.env-vars %s=%s" % (k, item[k]))
   cmdline = 'create %s %s' % (executable, ' '.join(dict['args']))
-  print("command line: #%s#" % cmdline)
   debugger.doTarget(cmdline)
   #dSYMFile = dict['dSYM'] # TODO: handle customised symbols dir
   #if os.path.exists(dSYMFile):
