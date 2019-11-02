@@ -4,11 +4,11 @@ The ultra lightweight code editor and small IDE.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 
-Speare is an ultra lightweight code editor and small IDE that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python and PHP. The most important feature of Speare Pro is that it support directly switch between any version of self-compiled scripting language interpreters.<br>
+Speare is an ultra lightweight code editor and small IDE that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python and PHP. The most important feature of Speare Pro is that it support extend the debuggers by yourself and directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
-1. Well designed user operation interface. Intuitive, friendly, simple and easy. <br>
+1. Well designed user operation interface, support extend the debuggers by yourself. Intuitive, simple and flexible, without boring configuration.<br>
 2. Fast search and replace in different searching scope, current document, opened files and entire project.<br>
 3. High performance of managing large amount of files and big files. Multiple distributed folder management by simple project file.<br>
 4. Smoothly edit multiple files that written in different programming languages simultaneously. Supports nearly 120 types of common programming language syntax highlighting and parsing, quickly switch between files and projects.<br>
@@ -72,4 +72,3 @@ References
 -------------
 Speare code editor: http://sevenuc.com/en/Speare.html<br>
 Speare Pro, the ultra lightweight IDE: http://sevenuc.com/en/debugger.html<br>
-
