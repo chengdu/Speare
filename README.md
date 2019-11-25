@@ -8,17 +8,17 @@ Speare is an ultra lightweight code editor and small IDE that has a designedly g
 
 Features
 ------------
-1. Well designed user operation interface, support extend the debuggers by yourself. Intuitive, simple and flexible, without boring configuration.<br>
+1. Well designed user operation interface. Intuitive and simple.<br>
 2. Fast search and replace in different searching scope, current document, opened files and entire project.<br>
 3. High performance of managing large amount of files and big files. Multiple distributed folder management by simple project file.<br>
 4. Smoothly edit multiple files that written in different programming languages simultaneously. Supports nearly 120 types of common programming language syntax highlighting and parsing, quickly switch between files and projects.<br>
 5. Word autocomplete, sensitivity of keywords when typing, live parsing symbol definition for suggested words list.<br>
 6. Jump to definition and fast locate code lines between editing files by symbol index, bookmark or searching.<br>
-7. Go back and forward, automatically remember the sequence of current editing files.<br>
+7. Unlimited go back and forward, automatically remember the sequence of current editing locations of file and files.<br>
 8. Keeping entire state after quit, the opened files, selection of each file and the cursor location.<br>
 9. Customisation of fonts and colours for the text editor.<br>
-10. Preview html or markdown files in builtin web browser instantly.<br>
-11. Ultra lightweight, Speare itself is less than 1MB.<br>
+10. Run Javascript code and preview html or markdown files in builtin web browser instantly.<br>
+11. Ultra lightweight.<br>
 <br>
 
 Other Builtin Features:
@@ -27,7 +27,7 @@ a. ❅ C and C++ debugging with LLDB.<br>
 b. Binary file automatically detection.<br>
 c. Text encodings automatically detection when open file and convert to UTF-8 by default.<br>
 d. Code block selection by double clicking the begin symbol of code block.<br>
-e. Builtin compatible UTF-8 regular expression matching anywhere.<br>
+e. Preview all kinds of files, image, pdf, office documents, audio and video etc.<br>
 <br>
 
 Screenshots
