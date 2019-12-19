@@ -3,15 +3,16 @@
 The ultra lightweight code editor and small IDE.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
+https://sourceforge.net/projects/speare/<br>
 
-Speare is an ultra lightweight code editor and small IDE that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python, PHP and Perl. The most important feature of Speare Pro is that it support extend the debuggers by yourself and directly switch between any version of self-compiled scripting language interpreters.<br>
+Speare is an ultra lightweight code editor and small IDE that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python, PHP, Perl and Tcl. The most important feature of Speare is that it support extend the debuggers by yourself and directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
 1. Well designed user operation interface. Intuitive and simple.<br>
 2. Fast search and replace in different searching scope, current document, opened files and entire project.<br>
 3. High performance of managing large amount of files and big files. Multiple distributed folder management by simple project file.<br>
-4. Smoothly edit multiple files that written in different programming languages simultaneously. Supports nearly 120 types of common programming language syntax highlighting and parsing, quickly switch between files and projects.<br>
+4. Smoothly edit multiple files that written in different programming languages simultaneously. Supports almost all common programming languages syntax highlighting and parsing, quickly switch between files and projects.<br>
 5. Word autocomplete, sensitivity of keywords when typing, live parsing symbol definition for suggested words list.<br>
 6. Jump to definition and fast locate code lines between editing files by symbol index, bookmark or searching.<br>
 7. Unlimited go back and forward, automatically remember the sequence of current editing locations of file and files.<br>
@@ -32,9 +33,9 @@ e. Preview all kinds of files, image, pdf, office documents, audio and video etc
 
 Screenshots
 -------------
+![Screenshot of Speare](http://sevenuc.com/images/Speare/9.png) <br>
 ![Screenshot of Speare](http://sevenuc.com/images/Speare/1.png) <br>
 ![Screenshot of Speare](http://sevenuc.com/images/Speare/2.png) <br>
-![Screenshot of Speare](http://sevenuc.com/images/Speare/9.png) <br>
 ![Screenshot of Speare](http://sevenuc.com/images/Speare/3.png) <br>
 <br>
 
@@ -73,6 +74,10 @@ Perl Debugger
 The [Perl debugger](http://sevenuc.com/en/debugger.html#perl) of Speare Pro implemented as a patched version of perl5db.pl, and support extend it by yourself. The debugger was based on the builtin debugger of Perl, so it can work with all versions of Perl interpreter that perl5db.pl supported.<br>
 <br>
 
+Tcl Debugger
+-----------
+The [Tcl debugger](http://sevenuc.com/en/debugger.html#tcl) of Speare code editor implemented with Tcl scripts and an extension written with C to parse Tcl source code, and support extend it by yourself. You can enjoy debugging almost all kinds of Tcl applications under the lightweight debugging environment of Speare code editor.<br>
+<br>
 
 References
 -------------
