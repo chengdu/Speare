@@ -5,28 +5,30 @@ http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 https://sourceforge.net/projects/speare/<br>
 
-Speare is an ultra lightweight code editor and small IDE that has a designedly graphical user operation interface smoothly support editing multiple files that written with different programming languages simultaneously. It was originally developed to provide a native scripting language debugging environment that seamlessly integrated with C and C++. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that has IDE features especially scripting language debugging environment supported. It supports debugging applications that written with C, C++, Ruby, Lua, Python, PHP, Perl and Tcl. The most important feature of Speare is that it support extend the debuggers by yourself and directly switch between any version of self-compiled scripting language interpreters.<br>
+Speare is an ultra lightweight code editor and small IDE. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows you to add a new programming language parser, syntax highlighting, code formatter and debugger to it. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that supports debugging with more programming languages including Ruby, Lua, Python, PHP, Perl and Tcl. Most of the debuggers supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
 1. Well designed user operation interface. Intuitive and simple.<br>
-2. Fast search and replace in different searching scope, current document, opened files and entire project.<br>
-3. High performance of managing large amount of files and big files. Multiple distributed folder management by simple project file.<br>
-4. Smoothly edit multiple files that written in different programming languages simultaneously. Supports almost all common programming languages syntax highlighting and parsing, quickly switch between files and projects.<br>
-5. Word autocomplete, sensitivity of keywords when typing, live parsing symbol definition for suggested words list.<br>
-6. Jump to definition and fast locate code lines between editing files by symbol index, bookmark or searching.<br>
-7. Unlimited go back and forward, automatically remember the sequence of current editing locations of file and files.<br>
-8. Keeping entire state after quit, the opened files, selection of each file and the cursor location.<br>
-9. Customisation of fonts and colours for the text editor.<br>
-10. Run Javascript code and preview html or markdown files in builtin web browser instantly.<br>
-11. Ultra lightweight.<br>
+2. High performance of managing large amount of files and big files.<br> 
+3. Fast search and replace in current document, selected folder, opened files and entire project.<br>
+4. Smoothly edit multiple files that written in different programming languages simultaneously.<br>
+5. Supports almost all common programming languages syntax highlighting and parsing.<br>
+6. Auto-completion, sensitively typing with keywords, live parsing symbol definition with priority.<br>
+7. Jump to definition and fast locate code lines between editing files by symbol index, bookmark or searching.<br>
+8. Unlimited go back and forward, automatically remember jump location and current editing locations.<br>
+9. Keeping entire state after quit, the opened files, selection of each file and the cursor location.<br>
+10. Customisation of fonts and colours for the text editor.<br>
+11. Full featured markdown editor, run Javascript code instantly, well support Web development.<br>
+12. Ultra lightweight.<br>
 <br>
+
 
 Other Builtin Features:
 ------------
-a. ❅ C and C++ debugging with LLDB.<br>
+a. C and C++ debugging with LLDB.<br>
 b. Binary file automatically detection.<br>
-c. Text encodings automatically detection when open file and convert to UTF-8 by default.<br>
+c. Automatically detecting file encoding and convert to UTF-8 by default when open file.<br>
 d. Code block selection by double clicking the begin symbol of code block.<br>
 e. Preview all kinds of files, image, pdf, office documents, audio and video etc.<br>
 <br>
