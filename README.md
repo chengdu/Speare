@@ -81,6 +81,11 @@ Tcl Debugger
 The [Tcl debugger](http://sevenuc.com/en/debugger.html#tcl) of Speare code editor implemented with Tcl scripts and an extension written with C to parse Tcl source code, and support extend it by yourself. You can enjoy debugging almost all kinds of Tcl applications under the lightweight debugging environment of Speare code editor.<br>
 <br>
 
+Add a New Programming Language
+-----------
+Download the guide from here: [Language Extension Protocol](http://sevenuc.com/download/language_extension_protocol.pdf), and following the description to add a new programming language parser, syntax highlighting, code formatter and debugger in Speare code editor.<br>
+<br>
+
 References
 -------------
 Speare code editor: http://sevenuc.com/en/Speare.html<br>
