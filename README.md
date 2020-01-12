@@ -26,11 +26,12 @@ Features
 
 Other Builtin Features:
 ------------
-a. C and C++ debugging with LLDB.<br>
-b. Binary file automatically detection.<br>
-c. Automatically detecting file encoding and convert to UTF-8 by default when open file.<br>
-d. Code block selection by double clicking the begin symbol of code block.<br>
-e. Preview all kinds of files, image, pdf, office documents, audio and video etc.<br>
+a. Run syntax check and code snippets instantly.
+b. C and C++ debugging with LLDB.<br>
+c. Binary file automatically detection.<br>
+d. Automatically detecting file encoding and convert to UTF-8 by default when open file.<br>
+e. Code block selection by double clicking the begin symbol of code block.<br>
+f. Preview all kinds of files, image, pdf, office documents, audio and video etc.<br>
 <br>
 
 Screenshots
