@@ -5,7 +5,7 @@ http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 https://sourceforge.net/projects/speare/<br>
 
-Speare is an ultra lightweight code editor and small IDE. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows you to add a new programming language parser, syntax highlighting, code formatter and debugger to it. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that supports debugging with more programming languages including Ruby, Lua, Python, PHP, Perl and Tcl. Most of the debuggers supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters.<br>
+Speare is an ultra lightweight code editor and small IDE. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows you to add a new programming language code runner, parser, syntax highlighting, code formatter and debugger to it. You can use the free version to debug C and C++ project. Speare Pro is the advanced version that supports debugging with more programming languages including Ruby, Lua, Python, PHP, Perl and Tcl. Most of the debuggers supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
@@ -26,7 +26,7 @@ Features
 
 Other Builtin Features:
 ------------
-a. Run syntax check and code snippets instantly.
+a. Run syntax checking and code snippets instantly.
 b. C and C++ debugging with LLDB.<br>
 c. Binary file automatically detection.<br>
 d. Automatically detecting file encoding and convert to UTF-8 by default when open file.<br>
@@ -84,7 +84,7 @@ The [Tcl debugger](http://sevenuc.com/en/debugger.html#tcl) of Speare code edito
 
 Add a New Programming Language
 -----------
-Download the guide from here: [Language Extension Protocol](http://sevenuc.com/download/language_extension_protocol.pdf), and following the description to add a new programming language parser, syntax highlighting, code formatter and debugger in Speare code editor.<br>
+Download the guide from here: [Language Extension Protocol](http://sevenuc.com/download/language_extension_protocol.pdf), and following the description to add a new programming language code runner, parser, syntax highlighting, code formatter and debugger in Speare code editor.<br>
 <br>
 
 References
