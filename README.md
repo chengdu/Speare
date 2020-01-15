@@ -26,7 +26,7 @@ Features
 
 Other Builtin Features:
 ------------
-a. Run syntax checking and code snippets instantly.
+a. Run syntax checking and code snippets instantly.<br>
 b. C and C++ debugging with LLDB.<br>
 c. Binary file automatically detection.<br>
 d. Automatically detecting file encoding and convert to UTF-8 by default when open file.<br>
