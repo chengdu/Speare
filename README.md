@@ -5,7 +5,7 @@ http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 https://sourceforge.net/projects/speare/<br>
 
-Speare is an ultra lightweight code editor and small IDE. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows end user to add a new programming language code runner, parser, syntax highlighting, code formatter and debugger to it. Speare has two version, a free version and a pro version, the free version provides all the features of the pro version. You can use the free version to debug C and C++ project, and debugging projects that written with scripting languages including Ruby, Lua, Python, PHP, Perl and Tcl. Most of the debuggers supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters. You can also kindly donate the author by purchasing the pro version (Speare - Donate version).<br>
+Speare is an ultra lightweight code editor and a small IDE that provides debugging environment for C, C++, Ruby, mruby, Lua, Python, PHP, Perl and Tcl. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows end user to add a new programming language code runner, parser, syntax highlighting, code formatter and debugger to it. You can use the free version to debug C and C++ project, and use the pro version to debugging with scripting languages including Ruby, Lua, Python, PHP, Perl and Tcl. Most of the debuggers supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
@@ -26,7 +26,7 @@ Features
 
 Other Builtin Features:
 ------------
-a. Run syntax checking and code snippets instantly.<br>
+a. Run syntax checking and editing code instantly.<br>
 b. C and C++ debugging with LLDB.<br>
 c. Binary file automatically detection.<br>
 d. Automatically detecting file encoding and convert to UTF-8 by default when open file.<br>
