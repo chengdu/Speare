@@ -5,7 +5,7 @@ http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 https://sourceforge.net/projects/speare/<br>
 
-Speare is an ultra lightweight code editor and a small IDE that provides debugging environment for C, C++, Ruby, mruby, Lua, Python, PHP, Perl and Tcl. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows end user to add a new programming language code runner, parser, syntax highlighting, code formatter and debugger to it. You can use the free version to debug C and C++ project, and use the pro version to debugging with scripting languages including Ruby, Lua, Python, PHP, Perl and Tcl. Most of the debuggers supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters.<br>
+Speare is an ultra lightweight code editor and a small IDE that provides debugging environment for C, C++, Ruby, mruby, Lua, Python, PHP, Perl and Tcl. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows end user to add a new programming language code runner, parser, syntax highlighting, code formatter and debugger to it. Most of the debuggers of Speare code editor supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters.<br>
 
 Features
 ------------
