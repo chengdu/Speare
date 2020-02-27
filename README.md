@@ -7,6 +7,13 @@ https://sourceforge.net/projects/speare/<br>
 
 Speare is an ultra lightweight code editor and a small IDE that provides debugging environment for C, C++, Ruby, mruby, Lua, Python, PHP, Perl and Tcl. It was originally developed to providing a native scripting language debugging environment that seamlessly integrated with C and C++, and with an efficient code navigation and call routines tracing ability. Speare has very simple interface that allows end user to add a new programming language code runner, parser, syntax highlighting, code formatter and debugger to it. Most of the debuggers of Speare code editor supports extending themselves in source code level and directly switch between any version of self-compiled scripting language interpreters.<br>
 
+Why another code editor and IDE on macOS?
+------------
+Although there are so many code editor and IDE available on macOS, but three feature of Speare code editor can make it unique:<br>
+1. **Lightweight.** Most of them are very heavy, bulky, but Speare code editor is really really ultra light.<br>
+2. **Cost.** Most of them are very expensive, but Speare code editor is free, of course, you can purchase the pro version to donate some money to the author, but that is not mandatory.<br>
+3. **Freedom.** Feel light, simple and free, flexibility to extend the IDE to support special developing requirements and easily add a new programming language to it, most of the IDE on macOS can't give you such ability and freedom. In fact, Speare code editor give you very flexible control to extend it and add a debugging environment for any programming language.<br>
+
 Features
 ------------
 1. Well designed user operation interface. Intuitive and simple.<br>
