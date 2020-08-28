@@ -1,6 +1,6 @@
 # Speare
 ![Logo of Speare](http://sevenuc.com/images/Speare/logo.png) <br>
-The ultra lightweight code editor and small IDE.<br>
+The free small IDE for scripting languages.<br>
 http://sevenuc.com/en/Speare.html<br>
 http://github.com/chengdu/Speare<br>
 https://sourceforge.net/projects/speare/<br>
@@ -96,5 +96,5 @@ Download the guide from here: [Language Extension Protocol](http://sevenuc.com/d
 
 References
 -------------
-Speare code editor: http://sevenuc.com/en/Speare.html<br>
-Speare Pro, the ultra lightweight IDE: http://sevenuc.com/en/debugger.html<br>
+Speare code editor: http://sevenuc.com/en/speare.html<br>
+Speare Pro, the free small IDE for scripting languages: http://sevenuc.com/en/debugger.html<br>
