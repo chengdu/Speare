@@ -1,7 +1,7 @@
 # Speare
-![Logo of Speare](http://sevenuc.com/images/Speare/logo.png) <br>
+![Logo of Speare](http://sevenuc.com/images/speare/logo.png) <br>
 The free small IDE for scripting languages.<br>
-http://sevenuc.com/en/Speare.html<br>
+http://www.sevenuc.com/en/speare.html<br>
 http://github.com/chengdu/Speare<br>
 https://sourceforge.net/projects/speare/<br>
 
@@ -43,10 +43,10 @@ f. Preview all kinds of files, image, pdf, office documents, audio and video etc
 
 Screenshots
 -------------
-![Screenshot of Speare](http://sevenuc.com/images/Speare/9.png) <br>
-![Screenshot of Speare](http://sevenuc.com/images/Speare/1.png) <br>
-![Screenshot of Speare](http://sevenuc.com/images/Speare/2.png) <br>
-![Screenshot of Speare](http://sevenuc.com/images/Speare/3.png) <br>
+![Screenshot of Speare](http://sevenuc.com/images/speare/9.png) <br>
+![Screenshot of Speare](http://sevenuc.com/images/speare/1.png) <br>
+![Screenshot of Speare](http://sevenuc.com/images/speare/2.png) <br>
+![Screenshot of Speare](http://sevenuc.com/images/speare/3.png) <br>
 <br>
 
 C and C++ Debugger
