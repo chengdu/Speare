@@ -43,10 +43,9 @@ f. Preview all kinds of files, image, pdf, office documents, audio and video etc
 
 Screenshots
 -------------
-![Screenshot of Speare](http://sevenuc.com/images/speare/9.png) <br>
+![Screenshot of Speare](http://sevenuc.com/images/speare/0.png) <br>
 ![Screenshot of Speare](http://sevenuc.com/images/speare/1.png) <br>
 ![Screenshot of Speare](http://sevenuc.com/images/speare/2.png) <br>
-![Screenshot of Speare](http://sevenuc.com/images/speare/3.png) <br>
 <br>
 
 C and C++ Debugger
