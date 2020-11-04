@@ -666,15 +666,16 @@ def main():
   print_banner()
   print('Listen on port %d ...' % port)
   print('image: %s' % executable)
-  
+
   connection, client_address = listener.accept()
   #connection.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
   debugger = LLDBDebugger(connection, listener, dict)
   debugger.handleSettings("settings set target.env-vars DEBUG=1")
   for item in dict['environment']:
-    k = item.keys()[0] 
-    #TODO: some value should be quoted
-    debugger.handleSettings("settings set target.env-vars %s=%s" % (k, item[k]))
+    k = item.keys()[0]
+    v = item[k]
+    if v.find(' ') != -1: v = "'" + v + "'"
+    debugger.handleSettings("settings set target.env-vars %s=%s" % (k, v))
   cmdline = 'create %s %s' % (executable, ' '.join(dict['args']))
   debugger.doTarget(cmdline)
   #dSYMFile = dict['dSYM'] # TODO: handle customised symbols dir

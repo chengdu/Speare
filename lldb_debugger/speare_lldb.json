@@ -6,7 +6,7 @@
   "dSYM": "/your/binary/path/hello.dSYM",
   "memorylimits": "4GB",
   "memorylimits_enable": true,
-  "remappath": "# /your/running/path",
+  "remappath": "# /source/code/folder",
   "dumpimage": false,
   "dumpregisters": false,
   "dumpframes": false
